@@ -1,6 +1,6 @@
 # docker-php
 
-root@3a22bc42dc39:/var/www/html# php -m
+root# php -m
 
 <pre>
 [PHP Modules]
