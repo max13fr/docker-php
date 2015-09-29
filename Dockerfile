@@ -11,8 +11,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd \
     && docker-php-ext-install mysql \
     && docker-php-ext-install mysqli \
-    && docker-php-ext-install pdo pdo_mysql \
-    && docker-php-ext-install pdo pdo_pgsql
+    && docker-php-ext-install pdo \
+    && docker-php-ext-install pdo_mysql \
+    && docker-php-ext-install pdo_pgsql
 
 # php-redis
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/2.2.7.tar.gz \
