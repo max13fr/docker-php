@@ -14,6 +14,7 @@ root# php -m
 
 <pre>
 [PHP Modules]
+[PHP Modules]
 Core
 ctype
 curl
@@ -27,6 +28,7 @@ hash
 iconv
 json
 libxml
+mbstring
 mcrypt
 mysql
 mysqli
@@ -34,6 +36,8 @@ mysqlnd
 openssl
 pcre
 PDO
+pdo_mysql
+pdo_pgsql
 pdo_sqlite
 Phar
 posix
