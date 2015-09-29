@@ -1,4 +1,14 @@
-# docker-php
+Php-fpm 5.6 for docker from official image.
+
+Add several extensions :
+* iconv
+* mcrypt
+* gd
+* mysql
+* mysqli
+* pdo
+* pdo_mysql
+* pdo_pgsql
 
 root# php -m
 
