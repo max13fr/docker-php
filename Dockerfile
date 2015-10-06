@@ -18,5 +18,7 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/2.
     && rm -r /tmp/redis.tar.gz \
     && mv phpredis-2.2.7 /usr/src/php/ext/redis \
     && docker-php-ext-install redis
+    
+RUN /usr/local/bin/pear install Cache_Lite
 
 CMD ["php-fpm"]
