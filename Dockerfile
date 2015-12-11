@@ -18,7 +18,14 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/2.
     && rm -r /tmp/redis.tar.gz \
     && mv phpredis-2.2.7 /usr/src/php/ext/redis \
     && docker-php-ext-install redis
-    
+
+# cache-lite
 RUN /usr/local/bin/pear install Cache_Lite
+
+# mail (redirect to host)
+RUN apt-get install -y ssmtp
+RUN echo "Mailhub=172.17.42.1" > /etc/ssmtp/ssmtp.conf && \
+    echo "FromLineOverride=Yes" >> /etc/ssmtp/ssmtp.conf && \
+    echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/mail.ini
 
 CMD ["php-fpm"]
