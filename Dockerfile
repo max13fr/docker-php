@@ -24,7 +24,7 @@ RUN /usr/local/bin/pear install Cache_Lite
 
 # mail (redirect to host)
 RUN apt-get install -y ssmtp
-RUN echo "Mailhub=172.17.42.1" > /etc/ssmtp/ssmtp.conf && \
+RUN echo "Mailhub=docker-host" > /etc/ssmtp/ssmtp.conf && \
     echo "FromLineOverride=Yes" >> /etc/ssmtp/ssmtp.conf && \
     echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/mail.ini
 
