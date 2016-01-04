@@ -1,6 +1,6 @@
 FROM php:7.0-fpm
 
-ENV PHPREDIS_VERSION 2.2.7
+ENV PHPREDIS_VERSION php7
 
 # iconv, mcrypt, gd, mysql, mysqli
 RUN apt-get update && apt-get install -y \
