@@ -1,4 +1,4 @@
-# docker-php
+# php7 fpm
 
 root# php -m
 
@@ -9,7 +9,6 @@ ctype
 curl
 date
 dom
-ereg
 fileinfo
 filter
 gd
@@ -17,13 +16,13 @@ hash
 iconv
 json
 libxml
+mbstring
 mcrypt
-mysql
-mysqli
 mysqlnd
 openssl
 pcre
 PDO
+pdo_pgsql
 pdo_sqlite
 Phar
 posix
