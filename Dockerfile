@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y \
         libmcrypt-dev \
         libpng12-dev \
         libpq-dev \
+        ssmtp \
+        vim \
+        less \
+        cron \
     && docker-php-ext-install iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd \
@@ -23,7 +27,6 @@ RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$P
     && docker-php-ext-install redis
 
 # mail (redirect to host)
-RUN apt-get install -y ssmtp
 RUN echo "Mailhub=docker-host" > /etc/ssmtp/ssmtp.conf && \
     echo "FromLineOverride=Yes" >> /etc/ssmtp/ssmtp.conf && \
     echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/mail.ini
