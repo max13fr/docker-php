@@ -31,4 +31,7 @@ RUN echo "Mailhub=docker-host" > /etc/ssmtp/ssmtp.conf && \
     echo "FromLineOverride=Yes" >> /etc/ssmtp/ssmtp.conf && \
     echo 'sendmail_path = "/usr/sbin/ssmtp -t"' > /usr/local/etc/php/conf.d/mail.ini
 
-CMD ["php-fpm"]
+COPY docker-entrypoint.sh /
+RUN chmod 700 /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
