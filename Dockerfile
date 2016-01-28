@@ -34,4 +34,4 @@ RUN echo "Mailhub=docker-host" > /etc/ssmtp/ssmtp.conf && \
 COPY docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD []
+CMD ["php-fpm"]
