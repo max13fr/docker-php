@@ -1,7 +1,5 @@
 FROM php:7.1-fpm
 
-ENV PHPREDIS_VERSION php7
-
 # iconv, mcrypt, gd, mysql, mysqli
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
@@ -20,11 +18,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install mbstring
 
 # phpredis extension
-RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/$PHPREDIS_VERSION.tar.gz \
-    && tar xfz /tmp/redis.tar.gz \
-    && rm -r /tmp/redis.tar.gz \
-    && mv phpredis-$PHPREDIS_VERSION /usr/src/php/ext/redis \
-    && docker-php-ext-install redis
+pecl install -o -f redis \
+    &&  rm -rf /tmp/pear \
+    &&  docker-php-ext-enable redis
 
 # mail (redirect to host)
 RUN echo "Mailhub=docker-host" > /etc/ssmtp/ssmtp.conf && \
