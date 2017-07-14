@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install mbstring
 
 # phpredis extension
-pecl install -o -f redis \
+RUN pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis
 
