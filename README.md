@@ -18,7 +18,9 @@ json
 libxml
 mbstring
 mcrypt
+mysqli
 mysqlnd
+opcache
 openssl
 pcre
 PDO
